@@ -1,0 +1,99 @@
+h1 {
+    display: flex; 
+    justify-content: center;
+}
+
+.textbox-placement {
+    display: flex; 
+    justify-content: center;
+}
+
+.use-keyboard-input {
+    width: 700px; 
+    height: 300px;
+}
+
+.keyboard {
+    /* Ensure the keyboard stays visible on top of everything else */
+    position: fixed; 
+
+    /* the next 3 lines ensures the keyboard is on the bottom of the page and takes up the entire width of the page */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    padding: 5px 0;
+    background: #004134;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); /* the first 3 zeroes equate to black, and is .5, or 50%, transparent */
+    user-select: none; /* prevents the user from benig able to select the keyboard */
+    transition: bottom 0.4s; /* when the keyboard animates on/off the screen it will transition nicely */
+}
+
+.keyboard--hidden {
+    bottom: -100%;
+}
+
+.keyboard__keys {
+    text-align: center;
+}
+
+.keyboard__key {
+    height: 45px;
+    width: 6%; /* using percent here allows for the keys to resize nicely as the screen size changes */
+    max-width: 90px;
+    margin: 3px;
+    border-radius: 4px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2); /* the first 3 zeroes equate to white and is .2, or 20%, transparent */
+    color: white;
+    font-size: 1.05rem; /* this means 5% larger than the root element size */
+    outline: none; /* removes the outline that shows up when pressing the key on mobile devices */
+    -webkit-tap-highlight-color: transparent; /* removes background opaque colors when pressing the key on mobile devices */
+    cursor: pointer; /* for desktop PC */
+    /* the next 3 lines are used to center icons on the key */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* the next two lines line up the keys nicely along the top. */
+    vertical-align: top;
+    padding: 0;
+    position: relative; /* this is needed to help the light on the caps-lock key to be positioned correctly */
+}
+
+.keyboard__key:active {
+    /* When pressing the key we want to color of the key to be a bit darker.
+       We can accomplish this by changing the opacity (it's .12 here, but above it was set to .2) */
+    background: rgba(255, 255, 255, 0.12); /* the first 3 zeroes equate to white and is .12, or 12%, transparent */
+}
+
+/* wide keys are used for button like caps-lock and the enter key */
+.keyboard__key--wide {
+    width: 12%;
+}
+
+/* extra-wide keys are used for things like the spacebar */
+.keyboard__key--extra-wide {
+    width: 36%;
+    max-width: 500px;
+}
+
+/* this creates the little circle in the top right corner of the capslock key */
+.keyboard__key--activatable::after { /* the 'after' psuedo class is a virtual element generated in CSS */
+    content: '';
+    /* position the light in the top right corner, 10 pixels from the top and right of the button */
+    top: 10px;
+    right: 10px;
+    position: absolute; /* this in conjunction with the 'position: relative' from the '.keyboard__key' helps with positioning the light */
+    width: 8px; /* the size of the light */
+    height: 8px; /* the size of the light */
+    background: rgba(0, 0, 0, 0.4); /* the first 3 zeroes equate to black, and is .4, or 40%, transparent */
+    border-radius: 50%; /* the radius is what creates the actual circle */
+}
+
+.keyboard__key--active::after { /* this 'after' now refers to the psuedo class created above */
+    background: #08ff00;
+}
+
+.keyboard__key--dark {
+    background: rgba(0, 0, 0, 0.25);
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>Virtual Keyboard w/ HTML, CSS & JS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="keyboard/keyboard.css">
+    <!-- from https://developers.google.com/fonts/docs/material_icons you are told to use the below-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Virtual Keyboard w/ HTML, CSS & JS</h1>
+    <div class=textbox-placement>
+        <textarea class="use-keyboard-input"></textarea>
+    </div>
+
+    <!-- this is the basic structure that is being created in the Javascript keyboard init() method -->
+    <!-- if you comment out all of the code from keyboard.js and uncomment out the below, you will see those 5 keys -->
+<!--     
+    <div class="keyboard">
+        <div class="keyboard__keys">
+            <button type="button" class="keyboard__key">a</button>
+            <button type="button" class="keyboard__key keyboard__key--wide">
+                <i class="material-icons">backspace</i>
+            </button>
+            <button type="button" class="keyboard__key keyboard__key--extra-wide">
+                <i class="material-icons">space_bar</i>
+            </button>
+            <button type="button" class="keyboard__key keyboard__key--wide keyboard__key--activatable">
+                <i class="material-icons">keyboard_capslock</i>
+            </button>
+            <button type="button" class="keyboard__key keyboard__key--wide keyboard__key--dark">
+                <i class="material-icons">check_circle</i>
+            </button>
+        </div>
+    </div>
+-->
+
+    <script src="keyboard/keyboard.js"></script>
+</body>
